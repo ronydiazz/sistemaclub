@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6ed0a7b0-0559-4986-9bc7-79427b123011">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="parametro" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="id_jugador" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CATEGORIA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     JUGADORES."NUM_CEDULA" AS JUGADORES_NUM_CEDULA,
+     JUGADORES."CATEGORIA" AS JUGADORES_CATEGORIA,
+     JUGADORES."SUB" AS JUGADORES_SUB,
+     JUGADORES."TELEFONO" AS JUGADORES_TELEFONO,
+     JUGADORES."NOMBRE" AS JUGADORES_NOMBRE,
+     JUGADORES."FECHA_NAC" AS JUGADORES_FECHA_NAC,
+     JUGADORES."POSICION" AS JUGADORES_POSICION,
+     JUGADORES."IMAGEN" AS JUGADORES_IMAGEN
+FROM
+     "ALDO"."JUGADORES" where CATEGORIA=$P{CATEGORIA}]]>
+	</queryString>
+	<field name="JUGADORES_NUM_CEDULA" class="java.lang.String"/>
+	<field name="JUGADORES_CATEGORIA" class="java.lang.String"/>
+	<field name="JUGADORES_SUB" class="java.lang.String"/>
+	<field name="JUGADORES_TELEFONO" class="java.lang.String"/>
+	<field name="JUGADORES_NOMBRE" class="java.lang.String"/>
+	<field name="JUGADORES_FECHA_NAC" class="java.sql.Timestamp"/>
+	<field name="JUGADORES_POSICION" class="java.lang.String"/>
+	<field name="JUGADORES_IMAGEN" class="java.io.InputStream"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement x="120" y="36" width="351" height="44" uuid="6ce8696c-a55b-436e-8854-676fe7288f25"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE JUGADORES]]></text>
+			</staticText>
+			<image>
+				<reportElement x="19" y="0" width="74" height="70" uuid="88eb58a0-ccb9-4db0-9e3b-126ca3d317c8"/>
+				<imageExpression><![CDATA["C:\\Users\\DELL\\Desktop\\club\\imagenes\\29.png"]]></imageExpression>
+			</image>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="500" y="0" width="100" height="20" uuid="4035afd2-3209-4dc9-8f8b-0c4c4d2a85bc"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="159" y="0" width="240" height="36" uuid="8378f5c4-2f67-4f9d-94f5-5b3f1df1da86"/>
+				<textElement>
+					<font size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLUB 29 DE JUNIO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="7" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="13" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="105" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="105" uuid="8bb0a3f6-c011-4db9-a795-37cd3f1d68b5"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="138" y="13" width="56" height="16" uuid="e9645a91-e8b6-42fa-bf00-401c502dbd38"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="108" y="33" width="86" height="20" uuid="ad0e5791-e7b1-478b-876b-f3544729a5f6"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° DE CEDULA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="125" y="55" width="69" height="20" uuid="6cdfe90c-cdc0-4349-9635-a49daeee0c1a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CATEGORIA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="349" y="13" width="60" height="20" uuid="984e6063-33bb-428a-9b6e-726afed1aa28"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[POSICION:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="194" y="13" width="141" height="20" uuid="bff11167-3d2a-4073-a6cf-1c8f389ec9bb"/>
+				<textFieldExpression><![CDATA[$F{JUGADORES_NOMBRE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="33" width="141" height="20" uuid="d1035fa6-9470-4bbc-966a-49c0b24a26e2"/>
+				<textFieldExpression><![CDATA[$F{JUGADORES_NUM_CEDULA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="55" width="141" height="20" uuid="a0e78e06-13f5-4d75-b521-79ab47dc7b7c"/>
+				<textFieldExpression><![CDATA[$F{JUGADORES_CATEGORIA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="409" y="13" width="141" height="20" uuid="1b8fbffc-579f-4fda-9c52-5eb4884fb362"/>
+				<textFieldExpression><![CDATA[$F{JUGADORES_POSICION}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame">
+				<reportElement x="6" y="13" width="97" height="81" uuid="d440b5b8-6e9b-4b7f-9854-fdb17ef2d5e6"/>
+				<imageExpression><![CDATA[$F{JUGADORES_IMAGEN}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="409" y="33" width="141" height="20" uuid="6a9addab-ce2d-42d4-97e0-2fefe028cbce"/>
+				<textFieldExpression><![CDATA[$F{JUGADORES_TELEFONO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="349" y="33" width="60" height="20" uuid="2845db03-f2df-4c4e-be80-45a7677ac36d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TELEFONO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="409" y="53" width="51" height="20" uuid="b6b403ab-d29d-488e-8400-2eb1bc717056"/>
+				<textFieldExpression><![CDATA[$F{JUGADORES_FECHA_NAC}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="343" y="53" width="66" height="20" uuid="fbc155cf-6b15-4c25-b430-0bf561d497e9"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA NAC:]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="435" y="0" width="80" height="20" uuid="5b03a94f-e001-46f6-a63c-68702bcdbed4"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="515" y="0" width="40" height="20" uuid="68770871-543d-4ba4-a4d7-329ec6f6ecaf"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

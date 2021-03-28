@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6ed0a7b0-0559-4986-9bc7-79427b123011">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="parametro" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="id_jugador" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="CATEGORIA" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     SOCIOS."ID_SOCIO" AS SOCIOS_ID_SOCIO,
+     SOCIOS."NUM_CED" AS SOCIOS_NUM_CED,
+     SOCIOS."TELEFONO" AS SOCIOS_TELEFONO,
+     SOCIOS."NOMBRE_APE" AS SOCIOS_NOMBRE_APE,
+     SOCIOS."FECHA_ING" AS SOCIOS_FECHA_ING,
+     SOCIOS."DIRECCION" AS SOCIOS_DIRECCION,
+     SOCIOS."IMAGEN_SOCIO" AS SOCIOS_IMAGEN_SOCIO
+FROM
+     "ALDO"."SOCIOS" SOCIOS ]]>
+	</queryString>
+	<field name="SOCIOS_ID_SOCIO" class="java.math.BigDecimal"/>
+	<field name="SOCIOS_NUM_CED" class="java.lang.String"/>
+	<field name="SOCIOS_TELEFONO" class="java.lang.String"/>
+	<field name="SOCIOS_NOMBRE_APE" class="java.lang.String"/>
+	<field name="SOCIOS_FECHA_ING" class="java.sql.Timestamp"/>
+	<field name="SOCIOS_DIRECCION" class="java.lang.String"/>
+	<field name="SOCIOS_IMAGEN_SOCIO" class="java.io.InputStream"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement x="146" y="36" width="263" height="44" uuid="6ce8696c-a55b-436e-8854-676fe7288f25"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE SOCIOS]]></text>
+			</staticText>
+			<image>
+				<reportElement x="19" y="0" width="74" height="70" uuid="88eb58a0-ccb9-4db0-9e3b-126ca3d317c8"/>
+				<imageExpression><![CDATA["C:\\Users\\DELL\\Desktop\\club\\imagenes\\29.png"]]></imageExpression>
+			</image>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="500" y="0" width="100" height="20" uuid="4035afd2-3209-4dc9-8f8b-0c4c4d2a85bc"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="159" y="0" width="240" height="36" uuid="8378f5c4-2f67-4f9d-94f5-5b3f1df1da86"/>
+				<textElement>
+					<font size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CLUB 29 DE JUNIO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="7" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="13" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="105" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="105" uuid="8bb0a3f6-c011-4db9-a795-37cd3f1d68b5"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="138" y="13" width="56" height="16" uuid="e9645a91-e8b6-42fa-bf00-401c502dbd38"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="108" y="33" width="86" height="20" uuid="ad0e5791-e7b1-478b-876b-f3544729a5f6"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° DE CEDULA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="125" y="55" width="69" height="20" uuid="6cdfe90c-cdc0-4349-9635-a49daeee0c1a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCION:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="318" y="13" width="91" height="20" uuid="984e6063-33bb-428a-9b6e-726afed1aa28"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA INGRESO:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="349" y="53" width="60" height="20" uuid="2845db03-f2df-4c4e-be80-45a7677ac36d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TELEFONO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="194" y="33" width="100" height="20" uuid="0b1caafe-8008-4f8b-9606-663ea49e8a33"/>
+				<textFieldExpression><![CDATA[$F{SOCIOS_NUM_CED}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="409" y="53" width="100" height="20" uuid="edfdff40-83db-4da9-b0cf-b17e42f27fc8"/>
+				<textFieldExpression><![CDATA[$F{SOCIOS_TELEFONO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="409" y="13" width="100" height="20" uuid="2c207867-75dd-4e3f-a7e6-2bcf45966c84"/>
+				<textFieldExpression><![CDATA[$F{SOCIOS_FECHA_ING}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="9" width="100" height="20" uuid="c7d396bf-44d9-4b3b-9bb1-d7f534894ef8"/>
+				<textFieldExpression><![CDATA[$F{SOCIOS_NOMBRE_APE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="55" width="100" height="20" uuid="ca6b8579-4b0e-4ef5-9984-bf32a7599e4d"/>
+				<textFieldExpression><![CDATA[$F{SOCIOS_DIRECCION}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="8" y="9" width="85" height="85" uuid="723a6ec1-7d39-45dc-b2a6-99a69ce17cf6"/>
+				<imageExpression><![CDATA[$F{SOCIOS_IMAGEN_SOCIO}]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="435" y="0" width="80" height="20" uuid="5b03a94f-e001-46f6-a63c-68702bcdbed4"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="515" y="0" width="40" height="20" uuid="68770871-543d-4ba4-a4d7-329ec6f6ecaf"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
